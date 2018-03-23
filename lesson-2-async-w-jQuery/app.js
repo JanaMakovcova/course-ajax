@@ -14,18 +14,16 @@
         $.ajax({
         url: `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`,
         headers: {
-        Authorization: 'Client-ID 23198'
+        Authorization: 'Client-ID 5572171bd679f13422c62001f8716094292ca883120bdbaad461e402a8f1bbef'
         }
         }).done(addImage).fail(function (err){
           requestError(err, 'image');
       });
 
-        function addImage(images){
+        function addImage(data){
           let htmlContent = '';
-          const firstImage = images.results[0];
-          console.log(data);
-          if (data && data.result && data.result[0]) {
-          const firstImage = data.result[0];
+          if (data && data.results && data.results[0]) {
+          const firstImage = data.results[0];
           htmlContent = `<figure>
           <img src="${firstImage.urls.regular}" alt="${searchedForText}">
           </figure>`;

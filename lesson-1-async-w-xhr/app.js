@@ -15,15 +15,15 @@
         unsplashRequest.onerror = function (err){
         requestError(err, 'image');
         };
-        unsplashRequest.setRequestHeader('Authorization', 'Client-ID 23198');
+        unsplashRequest.setRequestHeader('Authorization', 'Client-ID 5572171bd679f13422c62001f8716094292ca883120bdbaad461e402a8f1bbef');
         unsplashRequest.send();
 
         function addImage(){
           let htmlContent = '';
           const data = JSON.parse(this.responseText);
           console.log(data);
-          if (data && data.result && data.result[0]) {
-          const firstImage = data.result[0];
+          if (data && data.results && data.results[0]) {
+          const firstImage = data.results[0];
           htmlContent = `<figure>
           <img src="${firstImage.urls.regular}" alt="${searchedForText}">
           </figure>`;
