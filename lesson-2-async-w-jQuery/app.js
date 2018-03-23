@@ -26,6 +26,7 @@
           const firstImage = data.results[0];
           htmlContent = `<figure>
           <img src="${firstImage.urls.regular}" alt="${searchedForText}">
+          <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
           </figure>`;
         } else {
           htmlContent = '<div class="error-no-image"> No images available </div>';
